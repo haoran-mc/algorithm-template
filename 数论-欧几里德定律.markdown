@@ -1,0 +1,8 @@
+<!-- -------------------------2020年11月17日 ---- 16时11分------------------------- -->
+
+```cpp
+template<typename T>
+T Gcd(T num1, T num2) {
+    return !num2 ? num1 : Gcd(num2, num1 % num2);
+}
+```
