@@ -73,7 +73,7 @@
     * 前缀和
 * 其他算法与技巧
     * [自定义](https://github.com/haoran-mc/NCUtemplate/blob/main/bin/--自定义.markdown)
-    * 快读模板
+    * [快读模板](https://github.com/haoran-mc/NCUtemplate/blob/main/bin/--快读模板.markdown)
     * [格式化读取输出](https://github.com/haoran-mc/NCUtemplate/blob/main/bin/--格式化读取输出.markdown)
     * 博弈论
         * BashGame
