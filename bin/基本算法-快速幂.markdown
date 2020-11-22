@@ -1,9 +1,10 @@
 <!-- -------------------------2020年11月17日 ---- 16时11分------------------------- -->
 
+### 快速幂
+
 ```cpp
 #include <cstdio>
 const int mod = 99991;
-
 template<typename T>
 T binPow(T base, T expo) {
     T res = 1;
@@ -16,14 +17,12 @@ T binPow(T base, T expo) {
     }
     return res;
 }
-
 int main()
 {
     long long base = 23, expo = 19898283988388888;
     long long res;
     for (int i = 0; i < 1000000; ++i)
         res = binPow(base, expo);
-
     printf("%lld\n", res);
     return 0;
 }

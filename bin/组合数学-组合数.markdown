@@ -1,5 +1,7 @@
 <!-- -------------------------2020年11月16日 ---- 20时11分------------------------- -->
 
+### 组合数
+
 * $C_n^m  = \frac{n!}{m!(n - m)!}$
 * $A_n^m  = C_n^m m! = \frac{n!}{(n - m)!}$
 
@@ -69,7 +71,6 @@ int main() {
     int n, x, x_position;
     long long ans = 0;
 
-
     cin >> n >> x >> x_position;
     vector <long long> fact(n + 1, 1LL);
     vector <long long> inv(n + 1, 1LL);
@@ -77,7 +78,6 @@ int main() {
         fact[i] = (fact[i - 1] * i) % MOD;
         inv[i] = binPow(fact[i], MOD - 2);
     }
-
     int cnt_big = 0, cnt_less = 0;
     binarySearch(n, x_position, cnt_big, cnt_less);
 
@@ -94,9 +94,7 @@ int main() {
     multiply = (1LL * multiply * fact[other]) % MOD;
 
     ans = (ans + multiply) % MOD;
-
     cout << ans << endl;
-
     return 0;
 }
 ```

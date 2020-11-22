@@ -1,8 +1,10 @@
 <!-- -------------------------2020年11月17日 ---- 16时11分------------------------- -->
 
+### segment-tree
+
 ```cpp
 #include<stdio.h>
-#define MAX_LEN 1000
+const int maxn = 1000;
 
 void bulid_tree(int arr[], int tree[], int node, int start, int end) {
     if (start == end) {
@@ -39,10 +41,6 @@ void update_tree(int arr[], int tree[], int node, int start, int end, int idx, i
 }
 
 int query_tree(int arr[], int tree[], int node, int start, int end, int L, int R) {
-    printf("start = %d\n", start);
-    printf("end   = %d\n", end);
-    printf("\n");
-
     if (R < start || L > end) {
         return 0;
     }
@@ -66,25 +64,19 @@ int main()
 {
     int arr[] = {1, 3, 5, 7, 9, 11};
     int size  = 6;
-    int tree[MAX_LEN] = {0};
-
+    int tree[maxn] = {0};
     bulid_tree(arr, tree, 0, 0, size-1);
-
-    int i;
-    for(i = 0; i <= 14; i++) {
+    for(int i = 0; i <= 14; i++)
         printf("tree[%d] = %d\n", i, tree[i]);
-    }
-
     printf("\n");
+
     update_tree(arr, tree, 0, 0, size-1, 4, 6);
-    for(i = 0; i <= 14; i++) {
+    for(i = 0; i <= 14; i++)
         printf("tree[%d] = %d\n", i, tree[i]);
-    }
-
     printf("\n");
+
     int s = query_tree(arr, tree, 0, 0, size-1, 2, 5);
     printf("s = %d\n", s);
-
     return 0;
 }
 ```

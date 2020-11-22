@@ -1,5 +1,7 @@
 <!-- -------------------------2020年11月17日 ---- 17时11分------------------------- -->
 
+### KMP-search
+
 ```cpp
 void prefix_table(char pattern[], int prefix[], int n) {
     prefix[0] = 0;
@@ -21,13 +23,11 @@ void prefix_table(char pattern[], int prefix[], int n) {
         }
     }
 }
-
 void move_prefix_table(int prefix[], int n) {
     for (int i = n-1; i > 0; i--)
         prefix[i] = prefix[i-1];
     prefix[0] = -1;
 }
-
 void kmp_search(char text[], char pattern[]) {
     int n = strlen(pattern);
     int m = strlen(text);
@@ -70,13 +70,11 @@ void prefix_table(string pattern, int prefix[]) {
         }
     }
 }
-
 void move_prefix_table(int prefix[], int n) {
     for (int i = n - 1; i > 0; --i)
         prefix[i] = prefix[i-1];
     prefix[0] = -1;
 }
-
 void kmp_search(string text, string pattern) {
     int n = pattern.length();
     int m = text.length();

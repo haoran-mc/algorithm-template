@@ -1,10 +1,11 @@
 <!-- -------------------------2020年11月21日 ---- 14时11分------------------------- -->
 
+### 格式化读取输出
+
 ```cpp
 //sscanf 函数将多个不同类型的变量写入到字符串类型的一个变量中
 //sprintf 函数将一个字符串类型的变量写入到多个不同类型的变量中
 //两者不具备输入与输出功能，而是具有写入到其他变量中的功能
-
 #include<iostream>
 using namespace std;
 int main()
@@ -15,22 +16,17 @@ int main()
     char str2[20];
     char str3[20] = "2048:3.14,hello";
     char str4[20] = "good";
-
 //自左至右
     sscanf(str1, "%d", &n); //此时 str1 中的字符串转换为整型
     printf("%d\n", n);  //输出12345
-
 //自右向左
     sprintf(str2, "%d", n); //把之前 n 中的12345以字符串的方式放在str2中
     printf("%s\n", str2);   //输出字符串12345
-
 //复杂格式输入输出
     sscanf(str3, "%d:%lf,%s", &n, &db, str2);
     printf("n = %d, db = %.2f, str2 = %s\n", n, db, str2);
-
     sprintf(str2, "%d:%.2f,%s", n, db, str4);
     printf("str2 = %s\n", str2);
-
     return 0;
 }
 ```

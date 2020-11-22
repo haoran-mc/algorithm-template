@@ -82,3 +82,4 @@
     * [STL](https://github.com/haoran-mc/NCUtemplate/blob/main/bin/--STL.markdown)
     * CDQ分治
     * 莫队算法
+
