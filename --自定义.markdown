@@ -19,13 +19,12 @@ Node(int _node1, double _node2, char _node3): node1(_node1), node2(_node2), node
 
 int main() {
 #ifndef ONLINE_JUDGE
-  freopen("in.txt", "r", stdin);
-  freopen("out.txt", "w", stdout);
+    freopen("in.txt", "r", stdin);
+    freopen("out.txt", "w", stdout);
 #endif
-  //ios::sync_with_stdio(false);
-  //cin.tie(NULL), cout.tie(NULL);
-  Solve();
-  return 0;
+    //ios::sync_with_stdio(false);
+    //cin.tie(NULL), cout.tie(NULL);
+    solve();
+    return 0;
 }
-
 ```

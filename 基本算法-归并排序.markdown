@@ -4,7 +4,6 @@
 #include <cstdio>
 #include <cstring>
 
-// 归并排序（C++-递归版）
 template<typename T>
 void mergeSort(T arr[], T reg[], int start, int end) {
     if (start >= end)
