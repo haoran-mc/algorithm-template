@@ -1,5 +1,6 @@
 # NCUtemplate
 
+<<<<<<< HEAD
 * 字符串
     * 字符串HASH
     * [KMP](https://github.com/haoran-mc/NCUtemplate/blob/main/字符串-KMP.markdown)
@@ -88,3 +89,6 @@
     * 广度优先搜索
     * 深搜剪枝
     * 博弈论
+=======
+* [KMP](https://github.com/haoran-mc/NCUtemplate/blob/main/字符串-KMP.markdown)
+>>>>>>> b6f90de18c47bc53f2df0451cdb6dc1c8015e821
