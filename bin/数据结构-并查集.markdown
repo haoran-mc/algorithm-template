@@ -8,7 +8,7 @@
 const int vertices = 6;
 
 void initialize(int parent[], int rank[]) {
-    for (int i = 0; i < VERTICES; i++) {
+    for (int i = 0; i < vertices; i++) {
         parent[i] = -1;
         rank[i] = 0;
     }
@@ -48,8 +48,8 @@ bool union_vertices(int x, int y, int parent[], int rank[]) {
 
 int main()
 {
-    int parent[VERTICES] = {0};
-    int rank[VERTICES] = {0};
+    int parent[vertices] = {0};
+    int rank[vertices] = {0};
     int edges[6][2] = {
         {0, 1}, {1, 2}, {1, 3},
         {2, 4}, {3, 4}, {2, 5}

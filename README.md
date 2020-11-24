@@ -22,7 +22,7 @@
     * 排列
     * 容斥原理
     * 常见数列
-        * 斐波那契数列
+        * [斐波那契数列](https://github.com/haoran-mc/NCUtemplate/blob/main/bin/组合数学-斐波那契数列.markdown)
     * 母函数
     * 快速傅里叶(FFT)
 * 搜索

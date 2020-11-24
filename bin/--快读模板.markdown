@@ -4,9 +4,9 @@
 
 ```cpp
 inline int read() {
-    int x=0; bool flag=1; char ch=getchar();
+    int x=0; bool flag=true; char ch=getchar();
     while((ch<'0'||ch>'9')&&ch=='-')
-        flag=0, ch=getchar();
+        flag=false, ch=getchar();
     while(ch>='0'&&ch<='9')
         x=(x<<1)+(x<<3)+ch-'0', ch=getchar();
     return flag ? x : ~(x-1);
