@@ -14,7 +14,7 @@
         * 递推打表
         * 合数分解
     * [乘法逆元](https://github.com/haoran-mc/NCUtemplate/blob/main/bin/数论-乘法逆元.markdown)
-    * 杨辉三角
+    * [杨辉三角](https://github.com/haoran-mc/NCUtemplate/blob/main/bin/数论-杨辉三角.markdown)
 * 组合数学
     * 组合
         * [组合数](https://github.com/haoran-mc/NCUtemplate/blob/main/bin/组合数学-组合数.markdown)
