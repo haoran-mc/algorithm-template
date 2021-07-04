@@ -1,0 +1,371 @@
+%\documentclass[a4paper,twocolumn]{article} %两列
+\documentclass[10pt,a4paper]{article}
+\usepackage{titletoc} % 要调整章节标题在目录页中的格式，可以用titletoc宏包 title of contents
+\usepackage{titlesec} % 其中 center 可使标题居中,还可设为 raggedleft (居左，默认),
+\usepackage{abstract} % 摘要分栏的宏包
+% \usepackage[OT1]{fontenc} % 添加后才使字体加粗和斜体起作用
+\usepackage{xeCJK} % 中文字体
+\usepackage{amsmath, amsthm}
+\usepackage{listings,xcolor}
+\usepackage{geometry} % 设置页边距
+%\usepackage[margin=1in]{geometry}
+%\usepackage{fontspec, xunicode, xltxtra}
+\usepackage{fontspec}
+\usepackage{graphicx} % 插图宏集
+\usepackage{setspace}
+\usepackage{fancyhdr} % 自定义页眉页脚
+%\usepackage[bookmarks=true,colorlinks,linkcolor=black]{hyperref} %生成书签
+\usepackage[breaklinks,colorlinks,linkcolor=black,citecolor=black,urlcolor=black]{hyperref}
+
+\usepackage[Glenn]{fncychap}
+\usepackage{color}
+\usepackage{verbatim}
+%\usepackage{tgpagella}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+% 设置中文字体
+\setCJKmainfont[BoldFont={华文楷体}, SlantedFont={华文楷体}, ItalicFont={方正公文楷体}]{华文楷体}
+%\setCJKmainfont[BoldFont={华文楷体},SlantedFont={华文楷体},ItalicFont={方正行楷_GBK}]{华文楷体}
+%\setCJKmainfont[BoldFont={华文楷体},SlantedFont={华文楷体},ItalicFont={楷体}]{华文楷体}
+%\setCJKmainfont[BoldFont={华文楷体},SlantedFont={方正硬笔楷书_GBK},ItalicFont={方正硬笔行书简体}]{华文楷体}
+\setCJKfamilyfont{华文楷体}{华文楷体}
+%\setCJKfamilyfont{方正行楷_GBK}{方正行楷_GBK}
+\setCJKmonofont{华文楷体}
+%\setCJKmainfont[BoldFont={方正行楷_GBK},SlantedFont={方正行楷_GBK},ItalicFont={方正行楷_GBK}]{方正行楷_GBK}
+
+% 设置英文字体
+\setsansfont{Latin Modern Mono}
+%\setsansfont{Consolas}
+%\setsansfont{Sauce Code Pro Semibold Nerd Font Complete Mono}
+\setmonofont[Mapping={}]{Latin Modern Mono} % 英文引号之类的正常显示，相当于设置英文字体
+%\setmonofont[Mapping={}]{Consolas} % 英文引号之类的正常显示，相当于设置英文字体
+%\setmonofont[Mapping={}]{Sauce Code Pro Semibold Nerd Font Complete Mono} % 英文引号之类的正常显示，相当于设置英文字体
+\setmainfont{Latin Modern Mono}
+%\setmainfont{Consolas}
+%\setmainfont{Sauce Code Pro Semibold Nerd Font Complete Mono}
+\linespread{1.2}
+
+\title{Template For ICPC}
+\author{ogmc}
+\definecolor{dkgreen}{rgb}{0, 0.6, 0}
+\definecolor{gray}{rgb}{0.5, 0.5, 0.5}
+\definecolor{mauve}{rgb}{0.58, 0, 0.82}
+
+\pagestyle{fancy}
+% 以下分别为左中右的页眉和页脚
+\CJKfamily{华文楷体}{
+    \lhead{Nanchang University}
+    \chead{}
+    \rhead{第 \thepage 页}
+    \lfoot{ogmc}
+    \cfoot{\thepage}
+    \rfoot{}
+}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\contentsname}{\huge \center 目录} % 目录标题
+\geometry{left=2.5cm,right=3cm,top=2.5cm,bottom=2.5cm} % 页边距
+\geometry{left=3.18cm,right=3.18cm,top=2.54cm,bottom=2.54cm}
+\setlength{\columnsep}{30pt}
+
+\makeatletter
+\makeatother
+
+\lstset{
+    language = C++,
+    numbers = left,
+    numberstyle = {               % 设置行号格式
+        \small
+        \color{black}
+        \fontspec{Consolas}
+        },
+    commentstyle ={               % 代码注释格式
+        \color[RGB]{0,128,0}
+        \bfseries
+        },
+    keywordstyle={                % 设置关键字格式
+        \color[RGB]{40,40,255}
+        \fontspec{Consolas}
+        \bfseries
+        },
+    stringstyle={                 % 设置字符串格式
+        %\color[RGB]{128,0,0}
+        \color{red}
+        \fontspec{Consolas}
+        \bfseries
+    },
+    basicstyle={                  % 设置代码格式
+        \fontspec{Consolas}
+        \small
+        },
+    emphstyle   = \color[RGB]{112,64,160},   % 设置强调字格式
+    breaklines  = true,                      % 设置自动换行
+    tabsize     = 4,
+    frame       = single,                    % 主题
+    columns     = fullflexible,
+    showstringspaces = false,                % 不显示代码字符串中间的空格标记
+    aboveskip=3mm,
+    belowskip=3mm,
+    breakatwhitespace=true
+    tabsize=3
+}
+
+\begin{document}
+\begin{titlepage}
+    \newcommand{\HRule}{\rule{\linewidth}{0.1mm}}
+    \center
+    \quad\\[1.5cm]
+    %\textsl{\Large University of Chinese Academy of Sciences }\\[0.5cm]
+    %\textsl{\large School of Electrical and Electronic Engineering}\\[0.5cm]
+    \makeatletter
+    \HRule \\[0.4cm]
+    \emph{\fontsize{40pt}{\baselineskip}\selectfont \bfseries \@title}\\[0.2cm]
+    \HRule \\[5cm]
+    \includegraphics[width=10cm]{logo.jpeg}\\[1cm]
+    \vskip 5cm
+    \begin{minipage}{1\textwidth}
+        \begin{center} \LARGE
+            \emph{Author: \@author} \\
+            \emph{Email: haoran.mc@outlook.com} \\
+        \end{center}
+    \end{minipage}
+    \makeatother
+    \vfill
+    \thispagestyle{empty}
+    \pagebreak
+    \pagestyle{plain}
+    \tableofcontents
+\end{titlepage}
+\section{01-基本算法}
+\subsection{01-lower-upper-bound}
+\lstinputlisting{../01-基本算法/01-lower-upper-bound.cpp}
+\subsection{01-三次方根}
+\lstinputlisting{../01-基本算法/01-三次方根.cpp}
+\subsection{01-根据厚度将书分组}
+\lstinputlisting{../01-基本算法/01-根据厚度将书分组.cpp}
+\subsection{01-离散化-区间和}
+\lstinputlisting{../01-基本算法/01-离散化-区间和.cpp}
+\subsection{01-简单递归-for循环}
+\lstinputlisting{../01-基本算法/01-简单递归-for循环.cpp}
+\subsection{01-糖果传递}
+\lstinputlisting{../01-基本算法/01-糖果传递.cpp}
+\subsection{01-递归+vector}
+\lstinputlisting{../01-基本算法/01-递归+vector.cpp}
+\subsection{02-lhr}
+\lstinputlisting{../01-基本算法/02-lhr.cpp}
+\subsection{02-swap}
+\lstinputlisting{../01-基本算法/02-swap.cpp}
+\subsection{02-七夕祭}
+\lstinputlisting{../01-基本算法/02-七夕祭.cpp}
+\subsection{02-递归+哈希}
+\lstinputlisting{../01-基本算法/02-递归+哈希.cpp}
+\subsection{02-递归+状压}
+\lstinputlisting{../01-基本算法/02-递归+状压.cpp}
+\subsection{03-递归+状压}
+\lstinputlisting{../01-基本算法/03-递归+状压.cpp}
+\subsection{03-递归全排列+状压}
+\lstinputlisting{../01-基本算法/03-递归全排列+状压.cpp}
+\subsection{04-quickSort}
+\lstinputlisting{../01-基本算法/04-quickSort.cpp}
+\subsection{05-第k个数}
+\lstinputlisting{../01-基本算法/05-第k个数.cpp}
+\subsection{06-mergeSort}
+\lstinputlisting{../01-基本算法/06-mergeSort.cpp}
+\subsection{07-逆序数}
+\lstinputlisting{../01-基本算法/07-逆序数.cpp}
+\subsection{一维前缀和}
+\lstinputlisting{../01-基本算法/一维前缀和.cpp}
+\subsection{一维差分}
+\lstinputlisting{../01-基本算法/一维差分.cpp}
+\subsection{二维前缀和}
+\lstinputlisting{../01-基本算法/二维前缀和.cpp}
+\subsection{二维差分}
+\lstinputlisting{../01-基本算法/二维差分.cpp}
+\subsection{均分纸牌}
+\lstinputlisting{../01-基本算法/均分纸牌.cpp}
+\section{02-搜索}
+\subsection{01-树的深度优先搜索}
+\lstinputlisting{../02-搜索/01-树的深度优先搜索.cpp}
+\subsection{02-图的深度优先搜索}
+\lstinputlisting{../02-搜索/02-图的深度优先搜索.cpp}
+\subsection{02-木棍dfs剪枝}
+\lstinputlisting{../02-搜索/02-木棍dfs剪枝.cpp}
+\subsection{03-树的广度优先搜索}
+\lstinputlisting{../02-搜索/03-树的广度优先搜索.cpp}
+\subsection{04-图的广度优先搜索}
+\lstinputlisting{../02-搜索/04-图的广度优先搜索.cpp}
+\subsection{BFS+Cantor}
+\lstinputlisting{../02-搜索/BFS+Cantor.cpp}
+\subsection{子集与二进制关系}
+\lstinputlisting{../02-搜索/子集与二进制关系.cpp}
+\subsection{组合与二进制关系}
+\lstinputlisting{../02-搜索/组合与二进制关系.cpp}
+\section{03-动态规划}
+\subsection{01-Bone-Collector}
+\lstinputlisting{../03-动态规划/01-Bone-Collector.cpp}
+\subsection{01-Corn-Fields}
+\lstinputlisting{../03-动态规划/01-Corn-Fields.cpp}
+\subsection{01-hdu1257}
+\lstinputlisting{../03-动态规划/01-hdu1257.cpp}
+\subsection{01-二维费用的背包问题}
+\lstinputlisting{../03-动态规划/01-二维费用的背包问题.cpp}
+\subsection{01-多重背包}
+\lstinputlisting{../03-动态规划/01-多重背包.cpp}
+\subsection{01-完全背包问题}
+\lstinputlisting{../03-动态规划/01-完全背包问题.cpp}
+\subsection{1-拦截子弹++}
+\lstinputlisting{../03-动态规划/1-拦截子弹++.cpp}
+\subsection{01-最少硬币问题}
+\lstinputlisting{../03-动态规划/01-最少硬币问题.cpp}
+\subsection{01-最长公共子序列}
+\lstinputlisting{../03-动态规划/01-最长公共子序列.cpp}
+\subsection{1-木棍加工++}
+\lstinputlisting{../03-动态规划/1-木棍加工++.cpp}
+\subsection{01-混合背包}
+\lstinputlisting{../03-动态规划/01-混合背包.cpp}
+\subsection{01-石子合并}
+\lstinputlisting{../03-动态规划/01-石子合并.cpp}
+\subsection{02-一维}
+\lstinputlisting{../03-动态规划/02-一维.cpp}
+\subsection{02-一维1}
+\lstinputlisting{../03-动态规划/02-一维1.cpp}
+\subsection{02-不要4-记忆化}
+\lstinputlisting{../03-动态规划/02-不要4-记忆化.cpp}
+\subsection{02-二进制分组优化}
+\lstinputlisting{../03-动态规划/02-二进制分组优化.cpp}
+\subsection{02-回文串}
+\lstinputlisting{../03-动态规划/02-回文串.cpp}
+\subsection{2-拦截导弹}
+\lstinputlisting{../03-动态规划/2-拦截导弹.cpp}
+\subsection{02-最少硬币组合}
+\lstinputlisting{../03-动态规划/02-最少硬币组合.cpp}
+\subsection{03-单调队列优化}
+\lstinputlisting{../03-动态规划/03-单调队列优化.cpp}
+\subsection{3-导弹拦截}
+\lstinputlisting{../03-动态规划/3-导弹拦截.cpp}
+\subsection{03-所有硬币组合-1}
+\lstinputlisting{../03-动态规划/03-所有硬币组合-1.cpp}
+\subsection{04-所有硬币组合-2}
+\lstinputlisting{../03-动态规划/04-所有硬币组合-2.cpp}
+\section{04-字符串}
+\subsection{01-KMP}
+\lstinputlisting{../04-字符串/01-KMP.cpp}
+\subsection{02-Manacher}
+\lstinputlisting{../04-字符串/02-Manacher.cpp}
+\subsection{04-最长公共子串}
+\lstinputlisting{../04-字符串/04-最长公共子串.cpp}
+\section{05-数学问题}
+\subsection{01-Bash-Game-sg}
+\lstinputlisting{../05-数学问题/01-Bash-Game-sg.cpp}
+\subsection{01-Catalan}
+\lstinputlisting{../05-数学问题/01-Catalan.cpp}
+\subsection{01-gcd-lcm}
+\lstinputlisting{../05-数学问题/01-gcd-lcm.cpp}
+\subsection{01-快速幂测试}
+\lstinputlisting{../05-数学问题/01-快速幂测试.cpp}
+\subsection{01-排列组合}
+\lstinputlisting{../05-数学问题/01-排列组合.cpp}
+\subsection{01-整数除以2}
+\lstinputlisting{../05-数学问题/01-整数除以2.cpp}
+\subsection{01-素数}
+\lstinputlisting{../05-数学问题/01-素数.cpp}
+\subsection{01-费马小定理}
+\lstinputlisting{../05-数学问题/01-费马小定理.cpp}
+\subsection{01-进制转换}
+\lstinputlisting{../05-数学问题/01-进制转换.cpp}
+\subsection{02-二进制状态压缩}
+\lstinputlisting{../05-数学问题/02-二进制状态压缩.cpp}
+\subsection{02-埃氏筛法}
+\lstinputlisting{../05-数学问题/02-埃氏筛法.cpp}
+\subsection{02-扩展欧几里得}
+\lstinputlisting{../05-数学问题/02-扩展欧几里得.cpp}
+\subsection{02-扩展欧几里得算法}
+\lstinputlisting{../05-数学问题/02-扩展欧几里得算法.cpp}
+\subsection{03-lowbit}
+\lstinputlisting{../05-数学问题/03-lowbit.cpp}
+\subsection{03-wythoff-Game}
+\lstinputlisting{../05-数学问题/03-wythoff-Game.cpp}
+\subsection{03-快速幂模板}
+\lstinputlisting{../05-数学问题/03-快速幂模板.cpp}
+\subsection{03-欧拉筛法}
+\lstinputlisting{../05-数学问题/03-欧拉筛法.cpp}
+\subsection{03-递推}
+\lstinputlisting{../05-数学问题/03-递推.cpp}
+\subsection{04-n!中质因子p的个数}
+\lstinputlisting{../05-数学问题/04-n!中质因子p的个数.cpp}
+\subsection{04-终极递推}
+\lstinputlisting{../05-数学问题/04-终极递推.cpp}
+\subsection{04-高精度加法}
+\lstinputlisting{../05-数学问题/04-高精度加法.cpp}
+\subsection{05-素因子}
+\lstinputlisting{../05-数学问题/05-素因子.cpp}
+\subsection{05-高精度减法}
+\lstinputlisting{../05-数学问题/05-高精度减法.cpp}
+\subsection{06-质因子分解}
+\lstinputlisting{../05-数学问题/06-质因子分解.cpp}
+\subsection{06-高精度乘法}
+\lstinputlisting{../05-数学问题/06-高精度乘法.cpp}
+\subsection{07-高精度除法}
+\lstinputlisting{../05-数学问题/07-高精度除法.cpp}
+\subsection{Fibonacci}
+\lstinputlisting{../05-数学问题/Fibonacci.cpp}
+\section{06-数据结构}
+\subsection{01-Segment-Tree}
+\lstinputlisting{../06-数据结构/01-Segment-Tree.cpp}
+\subsection{01-Sliding-Window}
+\lstinputlisting{../06-数据结构/01-Sliding-Window.cpp}
+\subsection{01-单调栈}
+\lstinputlisting{../06-数据结构/01-单调栈.cpp}
+\subsection{02-最大子序列和}
+\lstinputlisting{../06-数据结构/02-最大子序列和.cpp}
+\subsection{02-逆序链表迭代}
+\lstinputlisting{../06-数据结构/02-逆序链表迭代.cpp}
+\subsection{Template-并查集}
+\lstinputlisting{../06-数据结构/Template-并查集.cpp}
+\subsection{对顶堆}
+\lstinputlisting{../06-数据结构/对顶堆.cpp}
+\subsection{并查集合并压缩}
+\lstinputlisting{../06-数据结构/并查集合并压缩.cpp}
+\subsection{并查集路径压缩}
+\lstinputlisting{../06-数据结构/并查集路径压缩.cpp}
+\subsection{数状数组}
+\lstinputlisting{../06-数据结构/数状数组.cpp}
+\section{07-图论}
+\subsection{01-BFS-邻接矩阵}
+\lstinputlisting{../07-图论/01-BFS-邻接矩阵.cpp}
+\subsection{01-DFS-邻接矩阵}
+\lstinputlisting{../07-图论/01-DFS-邻接矩阵.cpp}
+\subsection{01-Floyd}
+\lstinputlisting{../07-图论/01-Floyd.cpp}
+\subsection{01-kruskal}
+\lstinputlisting{../07-图论/01-kruskal.cpp}
+\subsection{01-prim}
+\lstinputlisting{../07-图论/01-prim.cpp}
+\subsection{01-SPFA}
+\lstinputlisting{../07-图论/01-SPFA.cpp}
+\subsection{01-邻接矩阵}
+\lstinputlisting{../07-图论/01-邻接矩阵.cpp}
+\subsection{02-BFS-邻接表}
+\lstinputlisting{../07-图论/02-BFS-邻接表.cpp}
+\subsection{02-DFS-邻接表}
+\lstinputlisting{../07-图论/02-DFS-邻接表.cpp}
+\subsection{02-二叉堆}
+\lstinputlisting{../07-图论/02-二叉堆.cpp}
+\subsection{02-拓扑排序}
+\lstinputlisting{../07-图论/02-拓扑排序.cpp}
+\subsection{03-BFS-链式前向星}
+\lstinputlisting{../07-图论/03-BFS-链式前向星.cpp}
+\subsection{03-DFS-链式前向星}
+\lstinputlisting{../07-图论/03-DFS-链式前向星.cpp}
+\subsection{Bellman-Ford}
+\lstinputlisting{../07-图论/Bellman-Ford.cpp}
+\section{08-杂项}
+\subsection{mt19937}
+\lstinputlisting{../08-杂项/mt19937.cpp}
+\subsection{shuffle}
+\lstinputlisting{../08-杂项/shuffle.cpp}
+\subsection{约瑟夫环}
+\lstinputlisting{../08-杂项/约瑟夫环.cpp}
+\end{document}
