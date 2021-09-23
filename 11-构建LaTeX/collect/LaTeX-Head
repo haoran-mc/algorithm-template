@@ -1,0 +1,118 @@
+% \documentclass[twocolumn,a4]{article}
+% \setlength{\columnsep}{30pt}
+\documentclass[10pt,a4paper]{article}    % \documentclass 定义文档类型，这里使用article格式、11磅大小的字体、A4纸张
+\usepackage{titlesec}         % 其中 center 可使标题居中,还可设为 raggedleft (居左，默认),
+\usepackage{xeCJK}            % 中文字体
+\usepackage{listings}         % 代码快
+\usepackage{xcolor}           % 颜色
+\usepackage{color}            % 颜色
+\usepackage{fontspec}         % 使用 OpenType 需要这个包
+\usepackage{graphicx}         % 插图宏集
+\usepackage{fancyhdr}         % 自定义页眉页脚
+\usepackage[breaklinks, colorlinks, linkcolor=black, citecolor=black, urlcolor=black]{hyperref}
+
+\usepackage[Glenn]{fncychap}
+\usepackage{verbatim}
+
+% 设置中文字体
+\setCJKmainfont[BoldFont={华文楷体}, SlantedFont={华文楷体}, ItalicFont={方正公文楷体}]{华文楷体}
+\setCJKfamilyfont{华文楷体}{华文楷体}
+\setCJKmonofont{华文楷体}
+
+% 设置英文字体
+\setsansfont{Source Code Pro}
+\setmonofont[Mapping={}]{Source Code Pro}    % 英文引号之类的正常显示，相当于设置英文字体
+\setmainfont{Source Code Pro}
+\linespread{1.2}
+
+% 目录深度四级
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\title{ACM Template}
+\author{haoran}
+\definecolor{dkgreen}{rgb}{0, 0.6, 0}        % 自定义绿色
+\definecolor{gray}{rgb}{0.5, 0.5, 0.5}       % 自定义灰色
+\definecolor{mauve}{rgb}{0.58, 0, 0.82}      % 自定义紫色
+
+\pagestyle{fancy}                            % 定制页眉页脚
+
+% 以下分别为左中右的页眉和页脚
+\CJKfamily{华文楷体}{
+    \lhead{Nanchang University}
+    \chead{}
+    \rhead{}
+    \lfoot{haoran}
+    \cfoot{}
+    \rfoot{第 \thepage 页}
+}
+
+\renewcommand{\headrulewidth}{0.4pt}                % 页眉有一条0.4磅的分隔线
+% \renewcommand{\footrulewidth}{0.4pt}                % 页脚有一条0.4磅的分隔线
+\renewcommand{\contentsname}{\huge \center 目录}    % 目录标题
+\setlength{\columnsep}{30pt}
+
+% 使用带@的内部命令
+\makeatletter
+\makeatother
+
+\lstset{
+    language = C++,
+    numbers = none,
+    numberstyle = {               % 设置行号格式
+            \small
+            \color{black}
+            \fontspec{Consolas}
+        },
+    commentstyle = {              % 代码注释格式
+            \color[RGB]{0, 128, 0}
+            \fontspec{Consolas}
+        },
+    keywordstyle = {              % 设置关键字格式
+            \color[RGB]{40, 40, 255}
+            \fontspec{Consolas}
+            \bfseries
+        },
+    stringstyle = {               % 设置字符串格式
+            \color{red}
+            \fontspec{Consolas}
+            \bfseries
+    },
+    basicstyle = {                % 设置代码格式
+            \fontspec{Consolas}
+            \small
+        },
+    emphstyle   = \color[RGB]{112, 64, 160},   % 设置强调字格式
+    breaklines  = true,                        % 设置自动换行
+    tabsize     = 4,                           % tab宽度
+    showstringspaces = false,                  % 不显示代码字符串中间的空格标记
+    breakatwhitespace = true                   % 从空格处换行
+}
+
+%   aboveskip = 3mm,
+%   belowskip = 3mm,
+% columns     = fullflexible,   % 它使比例宽度的文本适合等宽网格；如果您选择等宽字体开始，则没有必要
+
+\begin{document}
+\begin{titlepage}
+    \newcommand{\HRule}{\rule{\linewidth}{0.1mm}}
+    \center
+    % \quad  \\[1.5cm]
+    \makeatletter
+    % \HRule \\[0.4cm]
+    \emph{\fontsize{35pt}{\baselineskip} \selectfont \bfseries \@title}\\[0.2cm]
+    \HRule \\[3cm]
+    \vskip 4cm
+    \begin{minipage}{\textwidth}
+        \begin{center} \LARGE
+            \emph{Author: \@author} \\
+            \emph{Email: haoran.mc@outlook.com} \\
+        \end{center}
+    \end{minipage}
+    \makeatother
+    \vfill
+    \thispagestyle{empty}
+    \pagebreak
+    \pagestyle{plain}
+    \tableofcontents
+\end{titlepage}
