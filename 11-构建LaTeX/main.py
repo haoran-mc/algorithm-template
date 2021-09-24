@@ -1,5 +1,10 @@
 import os
 
+fileignore = [
+    ".git", ".font", "01-STL", "11-构建LaTeX", "in", "00-封装类",
+    "in.txt", "out.txt", ".ogmc", "o-o", ".gitignore"
+]
+
 # 向要生成的模板写入准备好的头部与尾部
 def writetex(filename):
     fp = open(filename, "r")
@@ -16,7 +21,7 @@ def getLaTeX(path, depth):
     files.sort()                                    # 排序
     for file in files:                              # 遍历当前文件夹下所有文件
         if os.path.isdir(path + file):              # 如果是文件夹，递归
-            if (file == ".git" or file == ".font" or file == "01-STL" or file == "11-构建LaTeX" or file == "in"):    # 排除.git文件夹
+            if file in fileignore:                  # 排除无关文件夹
                 continue
             if depth == 0:                          # 一级目录特判
                 tex.write("\\section{" + file + "}\n")
@@ -30,7 +35,7 @@ def getLaTeX(path, depth):
                 tex.write("\\" + str + "section{" + file + "}\n")
             getLaTeX(path + file + "/", depth + 1)  # 递归寻找下一级目录
         elif os.path.isfile(path + file):           # 如果是文件
-            if (file == "in.txt" or file == "out.txt" or file == ".ogmc" or file == "o-o"):
+            if file in fileignore:                  # 排除无关文件夹
                 continue
             #  if depth == 1:
             #      str = "sub"
