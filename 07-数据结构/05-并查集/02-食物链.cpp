@@ -1,18 +1,15 @@
 /*----------------------------------------------------------------
- *   
- *   文件名称：02.cpp
- *   创建日期：2021年08月08日 星期日 21时21分15秒
- *   题    目：AcWing 0240 食物链
- *   算    法：并查集
- *   描    述：AcWing视频
- *
+ * 文件名称：02.cpp
+ * 创建日期：2021年08月08日 星期日 21时21分15秒 
+ * 题 目：AcWing 0240 食物链 
+ * 算 法：并查集 
+ * 描 述：<++>
  ----------------------------------------------------------------*/
 
 #include <cstdio>
 const int maxn = 5e4 + 5;
-int fa[maxn];  // 父节点
-int d[maxn];   // 距离根节点的距离
-
+int fa[maxn]; // 父节点
+int d[maxn]; // 距离根节点的距离
 // 并查集查询操作，维护一个d数组
 int find(int x) {
     if (fa[x] != x) {
@@ -22,7 +19,6 @@ int find(int x) {
     }
     return fa[x];
 }
-
 int main() {
     int n, m;
     scanf("%d %d", &n, &m);
@@ -37,8 +33,8 @@ int main() {
         else {
             int rootx = find(x), rooty = find(y);
             if (s == 1) {
-                if (rootx == rooty && (d[x] - d[y]) % 3)  // 说明都已经在集合中
-                        res++;
+                if (rootx == rooty && (d[x] - d[y]) % 3) // 说明都已经在集合中
+                    res++;
                 else if (rootx != rooty) {
                     fa[rootx] = rooty;
                     d[rootx] = d[y] - d[x];

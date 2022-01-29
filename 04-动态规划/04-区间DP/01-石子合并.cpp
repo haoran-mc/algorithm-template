@@ -1,46 +1,36 @@
 /*----------------------------------------------------------------
- *
- *   文件名称：01-石子合并.cpp
- *   创建日期：2021年03月09日 ---- 17时08分
- *   题    目：石子合并
- *   算    法：区间DP
- *   描    述：每次只能合并相邻的两堆石子，合并的花费为这两堆石子的总数
- *      每组数据第一行是n个整数，接下来有n堆石子
- *      状态转移方程：dp[i][j] = min(dp[i][k] + dp[k+1][j]) + sum[i][j-i+1];
+ * 文件名称：石子合并.cpp
+ * 创建日期：2021年03月09日 ---- 17时08分 
+ * 创建日期：2021年10月28日 星期四 16时13分02秒 
+ * 题 目：AcWing 0282 石子合并 
+ * 算 法：区间DP
+ * 描 述：设有 N 堆石子排成一排，其编号为 1, 2, 3, ..., N 
+ * 每堆石子有一定的质量，可以用一个整数来描述，现在要将这 N
+ * 堆石子合并成为一堆。每次只能合并相邻的两堆，合并的代价为
+ * 这两堆石子的质量之和，合并后与这两堆石子相邻的石子将和新堆相邻，
+ * 合并时由于选择的顺序不同，合并的总代价也不相同。
  *
  ----------------------------------------------------------------*/
 
 #include <cstdio>
 #include <algorithm>
 using namespace std;
-const int maxn = 255;
-const int inf  = 0x3f3f3f3f;
-int n;
-int sum[maxn]; //前i堆的和
-
-int minval() {
-    int dp[maxn][maxn]; //从第i堆石子到第j堆石子的最小花费
-    for (int i = 1; i <= n; ++i)
-        dp[i][i] = 0;
-    for (int len = 1; len <= n; ++len) //len是i与j之间的距离，也就是说区间DP是从小区间到大区间DP
-        for (int i = 1; i <= n-len; ++i) { //从第i堆开始
-            int j = i + len;               //从第j堆结束
-            dp[i][j] = inf;
-            for (int k = i; k < j; ++k)    //i与j之间用k进行分割
-                dp[i][j] = min(dp[i][j], dp[i][k] + dp[k+1][j] + (sum[j]-sum[i-1]));
-        }
-    return dp[1][n];
-}
-
+const int maxn = 300 + 5;
+int preS[maxn], dp[maxn][maxn];
+const int INF = 0x3f3f3f3f;
 int main() {
-    while (scanf("%d", &n)) {
-        sum[0] = 0;
-        for (int i = 1; i <= n; ++i) {
-            int x;
-            scanf("%d", &x);
-            sum[i] = sum[i-1] + x;
-        }
-        printf("%d\n", minval());
+    int n; scanf("%d", &n);
+    for (int i = 1; i <= n; ++ i) {
+        scanf("%d", &preS[i]);
+        preS[i] += preS[i - 1];
     }
+    for (int len = 2; len <= n; ++ len)
+        for (int i = 1; i + len - 1 <= n; ++ i) {
+            int j = i + len - 1;
+            dp[i][j] = INF;
+            for (int k = i; k < j; ++ k)
+                dp[i][j] = min(dp[i][j], dp[i][k] + dp[k + 1][j] + preS[j] - preS[i - 1]);
+        }
+    printf("%d\n", dp[1][n]);
     return 0;
 }

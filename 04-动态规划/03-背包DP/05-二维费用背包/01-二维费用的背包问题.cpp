@@ -1,33 +1,39 @@
 /*----------------------------------------------------------------
+ * 文件名称：01-二维费用的背包问题.cpp
+ * 创建日期：2021年04月28日 ---- 10时37分 
+ * 创建日期：2021年10月25日 星期一 08时56分17秒 
+ * 题 目：AcWing 0008 二维费用问题 
+ * 算 法：二维费用背包 
+ * 描 述：
+ * 有 N 件物品和一个容量是 V 的背包，背包能承受的最大重量是 M
+ * 每件物品只能用一次 体积是 vi，重量是 mi，价值是 wi
+ * 求解将哪些物品装入背包，可使物品总体积不超过背包容量
+ * 总重量不超过背包可承受的最大重量，且价值总和最大
  *
- *   文件名称：01-二维费用的背包问题.cpp
- *   创建日期：2021年04月28日 ---- 10时37分
- *   题    目：AcWing 0008 二维费用问题
- *   算    法：二维费用背包
- *   描    述：<++>
+ * 0 < N <= 1000
+ * 0 < V, M <= 100
+ * 0 < v, m <= 100
+ * 0 < w <= 1000
+ *
+ * dp[V][M] 表示在体积不超过 V，重量不超过 M，的最大价值
  *
  ----------------------------------------------------------------*/
 
 #include <cstdio>
-#define _max(a, b) (a > b ? a : b)
-#define _min(a, b) (a < b ? a : b)
-const int maxn = 1e3 + 5;
-int N, V, M;//物品数量，背包体积，背包最大承重
-int vo[maxn], we[maxn], va[maxn]; //第i件物品体积、重量和价值
+#include <algorithm>
+using namespace std;
+const int maxn = 1e2 + 5;
 int dp[maxn][maxn];
-
 int main() {
-#ifndef ONLINE_JUDGE
-    freopen("in.txt", "r", stdin);
-    // freopen("out.txt", "w", stdout);
-#endif
+    int N, V, M;
     scanf("%d %d %d", &N, &V, &M);
-    for (int i = 1; i <= N; ++i)
-        scanf("%d %d %d", &vo[i], &we[i], &va[i]);
-    for (int i = 1; i <= N; ++i)
-        for (int j = V; j >= vo[i]; --j)
-            for (int k = M; k >= we[i]; --k)
-                dp[j][k] = _max(dp[j][k], dp[j-vo[i]][k-we[i]] + va[i]);//动态转移方程，01 背包的思路
+    for (int i = 0; i < N; ++ i) {
+        int v, m, w;
+        scanf("%d %d %d", &v, &m, &w);
+        for (int j = V; j >= v; -- j)
+            for (int k = M; k >= m; -- k)
+                dp[j][k] = max(dp[j][k], dp[j - v][k - m] + w);
+    }
     printf("%d\n", dp[V][M]);
     return 0;
 }
