@@ -10,6 +10,7 @@
 
 #include <stdio.h>
 int num[] = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
+int n = 10;
 
 void insertSort() {
     int insertNum;
