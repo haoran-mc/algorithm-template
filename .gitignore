@@ -1,6 +1,7 @@
 template.*
 bin/
-!template.pdf
+template.pdf
+.DS_Store
 a
 data.in
 data.out
