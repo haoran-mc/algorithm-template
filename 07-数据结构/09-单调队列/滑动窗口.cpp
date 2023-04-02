@@ -13,6 +13,7 @@ const int maxn = 1e6 + 5;
 #define NEXTLINE puts("");
 int quu[maxn], a[maxn];
 int n, k;
+
 void get_min() {
     int hh = 0, tt = -1;
     for (int i = 0; i < n; ++i) {
@@ -26,6 +27,7 @@ void get_min() {
             printf("%d ", a[quu[hh]]);
     }
 }
+
 void get_max() {
     int hh = 0, tt = -1;
     for (int i = 0; i < n; ++i) {
@@ -38,6 +40,7 @@ void get_max() {
             printf("%d ", a[quu[hh]]);
     }
 }
+
 int main() {
     scanf("%d %d", &n, &k); // n个数，窗口大小为k
     for (int i = 0; i < n; ++i)
